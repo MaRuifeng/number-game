@@ -23,15 +23,24 @@ public class NumberChecker {
 
     public NumberChecker(List<MatchChecker> checkerList) {
         this.checkerList = checkerList;
-        this.resultList = new ArrayList<>();
     }
 
     public List<MatchResult> check(int[] source, int[] target) {
+        this.resultList = new ArrayList<>();
         checkerList.stream().forEach(checker -> this.resultList.add(checker.check(source, target)));
         return this.resultList;
     }
 
-    public String print() {
+    public String printResult() {
+        if (this.resultList == null) return "";
         return this.resultList.stream().map(MatchResult::print).collect(Collectors.joining(" "));
+    }
+
+    public List<MatchChecker> getCheckerList() {
+        return checkerList;
+    }
+
+    public List<MatchResult> getResultList() {
+        return resultList;
     }
 }

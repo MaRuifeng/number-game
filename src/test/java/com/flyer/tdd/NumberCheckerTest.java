@@ -47,7 +47,12 @@ public class NumberCheckerTest {
 
         checker.check(source, target);
 
-        Assert.assertEquals("3 A 3 B", checker.print());
+        Assert.assertEquals("3 A 3 B", checker.printResult());
+    }
+
+    @Test
+    public final void shouldRenderEmptyStringWhenNoMatchResults() {
+        Assert.assertEquals("", checker.printResult());
     }
 
 

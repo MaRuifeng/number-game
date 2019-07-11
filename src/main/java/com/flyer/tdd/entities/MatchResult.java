@@ -17,4 +17,8 @@ public class MatchResult {
     public String print() {
         return this.count + " " + this.code.getCode();
     }
+
+    public int getCount() {
+        return count;
+    }
 }
